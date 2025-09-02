@@ -118,11 +118,21 @@ void exibirElementos()
 void inserirElemento()
 {
 	// aloca memoria dinamicamente para o novo elemento
+
 	NO* novo = (NO*)malloc(sizeof(NO));
-	if (novo == NULL)
+
+
+
+     if (novo == NULL)
 	{
 		return;
 	}
+
+	if (novo != NULL) {
+		cout << "Esse elemento já existe na lista. Digite um novo elemento";
+	}
+
+
 
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
@@ -138,6 +148,7 @@ void inserirElemento()
 		NO* aux = primeiro;
 		while (aux->prox != NULL) {
 			aux = aux->prox;
+			NO* posicaoElemento();
 		}
 		aux->prox = novo;
 	}
@@ -145,11 +156,26 @@ void inserirElemento()
 
 void excluirElemento()
 {
+	NO* novo;
 	
+	
+	if (novo == NULL){
+		cout << "digite o valor que deseja excluir";
+		
+	}
+	
+	if (novo != NULL) {
+		cout << "Elemento não encontrado na lista." << endl;
+		return;
+
+
 }
 
 void buscarElemento()
-{
+{ 
+	
+	NO* pos;
+	int posicao = 0;
 	
 }
 
