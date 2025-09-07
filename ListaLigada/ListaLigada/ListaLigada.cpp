@@ -155,27 +155,93 @@ void inserirElemento()
 }
 
 void excluirElemento()
-{
-	NO* novo;
-	
-	
-	if (novo == NULL){
-		cout << "digite o valor que deseja excluir";
-		
-	}
-	
-	if (novo != NULL) {
-		cout << "Elemento não encontrado na lista." << endl;
-		return;
+{   
+	int excluir;
+	NO* atual = primeiro;
+	NO* anterior = NULL;
 
+	cout << "Digite o Valor que deseja excluir";
+	cin >> excluir;
+	NO* pos = posicaoElemento(excluir);
+
+	if(pos == NULL){
+		cout << "numero nao existe";
+
+	}
+
+	while (atual->valor != excluir){
+
+		anterior * atual;
+		atual = atual->prox;
+	}
+
+	if (atual->valor == excluir && anterior == NULL ){
+
+		primeiro = atual->prox;
+
+
+
+	}
+
+	else if(atual ->valor == excluir)
+	{
+
+		NO* aux = atual;
+		anterior->prox = atual->prox;
+		free(aux);
+
+		cout << "numero excluido";
+	}
 
 }
 
 void buscarElemento()
 { 
+
 	
-	NO* pos;
-	int posicao = 0;
+		int n;
+		cout << "Digite o valor que deseja buscar:  ";
+		cin >> n;
+
+		if (n <= 0) {
+			cout << "valor invalido" << endl;
+			return;
+		}
+
+		vector<int> v(n);
+		cout << "Digite os " << n << " valores:" << endl;
+		for (int i = 0; i < n; i++) {
+			cout << "  v[" << i << "] = ";
+			cin >> v[i];
+		}
+
+		int valor;
+		cout << "Digite o valor que deseja buscar: ";
+		cin >> valor;
+
+		bool encontrado = false;
+		int posicao = -1;
+		for (int i = 0; i < n; i++) {
+			if (v[i] == valor) {
+				encontrado = true;
+				posicao = i;
+				break;
+			}
+		}
+
+		if (encontrado) {
+			cout << "Valor encontrado na posição: " << posicao << endl;
+		}
+		else {
+			cout << "nao existe" << endl;
+		}
+	}
+
+	int main() {
+		buscarElemento();
+		return 0;
+	}
+
 	
 }
 
