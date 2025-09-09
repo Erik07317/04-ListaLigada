@@ -75,6 +75,7 @@ void inicializar()
 
 	// se a lista já possuir elementos
 	// libera a memoria ocupada
+	NO* novo = (NO*)malloc(sizeof(NO));
 	NO* aux = primeiro;
 	while (aux != NULL) {
 		NO* paraExcluir = aux;
@@ -82,7 +83,18 @@ void inicializar()
 		free(paraExcluir);
 	}
 
-	primeiro = NULL;
+	NO*primeiro = NULL;
+	NO* ultimo = NULL;
+
+	if (primeiro == NULL) {
+		primeiro = novo;
+		ultimo = novo;
+	}
+	else {
+		ultimo->prox = novo;
+		ultimo = novo;
+	
+	}
 	cout << "Lista inicializada \n";
 
 }
@@ -159,6 +171,7 @@ void excluirElemento()
 	int excluir;
 	NO* atual = primeiro;
 	NO* anterior = NULL;
+	NO* ultimo = NULL;
 
 	cout << "Digite o Valor que deseja excluir";
 	cin >> excluir;
@@ -171,19 +184,19 @@ void excluirElemento()
 
 	while (atual->valor != excluir){
 
-		anterior * atual;
+		anterior * atual * ultimo;
 		atual = atual->prox;
 	}
 
-	if (atual->valor == excluir && anterior == NULL ){
+	if (ultimo->valor == excluir && anterior == NULL ){
 
-		primeiro = atual->prox;
+		primeiro = ultimo->prox;
 
 
 
 	}
 
-	else if(atual ->valor == excluir)
+	else if(ultimo ->valor == excluir)
 	{
 
 		NO* aux = atual;
@@ -260,4 +273,46 @@ NO* posicaoElemento(int numero)
 		aux = aux->prox;
 	}
 	return aux;
+}
+
+
+//void excluirElemento()
+//{
+	//int excluir;
+	//NO* atual = primeiro;
+	//NO* anterior = NULL;
+
+	//cout << "Digite o Valor que deseja excluir";
+	//cin >> excluir;
+	//NO* pos = posicaoElemento(excluir);
+
+	//if (pos == NULL) {
+		//cout << "numero nao existe";
+
+	//}
+
+	//while (atual->valor != excluir) {
+
+		//anterior* atual;
+		//atual = atual->prox;
+	}
+
+	//if (atual->valor == excluir && anterior == NULL) {
+
+		//primeiro = atual->prox;
+
+
+
+	}
+
+	//else if (atual->valor == excluir)
+	{
+
+		//NO* aux = atual;
+		//anterior->prox = atual->prox;
+		//free(aux);
+
+		//cout << "numero excluido";
+	}
+
 }
